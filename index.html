@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BotaniScope - Full-Scope Garden Consultancy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #374151; line-height: 1.6; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  img {
+    max-width: 100%; height: auto; display: block;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgb(16 185 129 / 0.3);
+  }
+  a {
+    color: #059669; text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 0.5em;
+    line-height: 1.2;
+  }
+  p {
+    margin-top: 0; margin-bottom: 1.25em;
+    color: #4b5563;
+  }
+  /* Container */
+  .container {
+    max-width: 1200px; margin-inline: auto; padding-left: 24px; padding-right: 24px;
+  }
+  /* Header */
+  header {
+    position: sticky; top: 0; background: rgba(255 255 255 / 0.9); backdrop-filter: saturate(180%) blur(12px);
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+    z-index: 1000;
+  }
+  .header-content {
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .logo {
+    font-size: 1.75rem; font-weight: 700; color: #047857; letter-spacing: -0.02em;
+    cursor: default;
+  }
+  .slogan {
+    font-weight: 600; color: #10b981; font-size: 1rem; opacity: 0.8; font-style: italic;
+  }
+  nav {
+    display: flex;
+    gap: 32px;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #065f46;
+    display: inline-block;
+  }
+  nav a:hover,
+  nav a:focus {
+    color: #059669;
+    outline-offset: 2px;
+  }
+  /* Button */
+  .btn-primary {
+    background: linear-gradient(135deg, #059669, #10b981);
+    border: none; border-radius: 12px; color: white;
+    font-weight: 700; padding: 12px 28px;
+    cursor: pointer; transition: box-shadow 0.3s ease, background 0.3s ease;
+    font-size: 1rem;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    box-shadow: 0 0 20px #10b981;
+    background: linear-gradient(135deg, #10b981, #059669);
+    outline: none;
+  }
+  /* Hero */
+  .hero {
+    padding: 100px 0 80px;
+    text-align: center;
+    background: linear-gradient(135deg, #e0f2fe 0%, #a7f3d0 100%);
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    max-width: 720px;
+    margin-inline: auto;
+    color: #064e3b;
+    line-height: 1.1;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-inline: auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    color: #065f46;
+  }
+  /* Sections */
+  section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+  /* Section Title */
+  .section-title {
+    font-size: 2.25rem;
+    max-width: 800px;
+    margin-inline: auto;
+    margin-bottom: 40px;
+    color: #065f46;
+    text-align: center;
+  }
+  /* Cards Grid */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 32px;
+  }
+  /* Feature Card */
+  .feature-card {
+    background: #f0fdf4;
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .feature-card h3 {
+    margin-top: 16px;
+    color: #047857;
+  }
+  /* Image styling */
+  figure {
+    margin: 0 0 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgb(0 0 0 / 0.07);
+  }
+  figcaption {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 4px;
+    text-align: center;
+  }
+  /* Analytics dashboard cards (with images) */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin-inline: auto;
+  }
+  .chart-card {
+    background: #ecfdf5;
+    border-radius: 16px;
+    padding: 24px 32px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.07);
+    display: flex;
+    flex-direction: column;
+    min-height: 340px;
+  }
+  .chart-card h4 {
+    font-weight: 700;
+    margin-bottom: 18px;
+    text-align: center;
+    color: #065f46;
+  }
+  .chart-image {
+    border-radius: 12px;
+    box-shadow: 0 3px 14px rgb(16 185 129 / 0.3);
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+  /* Added analytics descriptive text block */
+  .analytics-description {
+    max-width: 900px;
+    margin: 48px auto 0;
+    color: #065f46;
+    font-size: 1rem;
+    line-height: 1.75;
+    text-align: center;
+  }
+  .analytics-image {
+    max-width: 900px;
+    margin: 32px auto 0;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgb(16 185 129 / 0.3);
+    overflow: hidden;
+  }
+  /* Main content text block with large scroll */
+  .long-content {
+    max-width: 900px;
+    margin-inline: auto;
+    padding: 0 16px;
+    color: #374151;
+    text-align: justify;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  /* About Us Section */
+  #about {
+    background: #f0fdf4;
+    border-radius: 16px;
+    max-width: 1000px;
+    margin-inline: auto;
+    padding: 48px 32px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.07);
+  }
+  /* Feedback Section */
+  #feedback {
+    background: #fef3c7;
+    border-radius: 16px;
+    max-width: 1000px;
+    margin-inline: auto;
+    padding: 48px 32px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.07);
+  }
+  textarea {
+    width: 100%; resize: vertical; min-height: 100px; padding: 10px 15px;
+    border: 1.5px solid #a3a3a3; border-radius: 8px; font-size: 1rem;
+    font-family: inherit; color: #374151;
+    transition: border-color 0.25s ease;
+  }
+  textarea:focus {
+    outline: none;
+    border-color: #10b981;
+  }
+  button.send-feedback {
+    margin-top: 15px;
+    background: #10b981;
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  button.send-feedback:hover,
+  button.send-feedback:focus {
+    background: #059669;
+    outline: none;
+  }
+  /* Disclaimer Section */
+  #disclaimer {
+    max-width: 900px;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-inline: auto;
+    margin-top: 16px;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+  /* Tips Section */
+  #tips {
+    max-width: 900px;
+    margin-inline: auto;
+    padding: 32px 16px;
+  }
+  #tips h3 {
+    color: #047857;
+    margin-bottom: 20px;
+  }
+  #tips ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #374151;
+    font-size: 1rem;
+  }
+  #tips ul li {
+    margin-bottom: 12px;
+  }
+  /* Address and Customer Satisfaction footer */
+  footer {
+    background: #064e3b;
+    color: #d1fae5;
+    padding: 48px 24px 24px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  footer strong {
+    color: #34d399;
+  }
+  /* Responsive: */
+  @media (max-width: 768px){
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+    .container {
+      padding-inline: 16px;
+    }
+    nav {
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-content" role="banner" aria-label="Primary navigation and branding">
+    <div class="logo" aria-label="BotaniScope logo">BotaniScope</div>
+    <nav aria-label="Primary navigation">
+  <a href="index.html" tabindex="0"aria-current="page">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0">Contact us</a>
+    </nav>
+    <div class="slogan" aria-label="Company slogan">Let's grow with insight.</div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" role="region" aria-labelledby="hero-title">
+    <h1 id="hero-title">Full-Scope Garden Consultancy <br /> Pruning, Layout & Water Management</h1>
+    <p>Harness the power of data and insight for beautiful, sustainable, and thriving gardens with BotaniScope’s expert services.</p>
+    <p>Our consultancy is dedicated to supporting gardeners of all levels—from home gardeners to professional landscapers—by offering comprehensive analytics-driven plans and insights that truly revolutionize traditional gardening approaches.</p>
+    <button class="btn-primary" aria-label="Get Started with BotaniScope">Get Started</button>
+  </section>
+
+  <section id="services" class="container" role="region" aria-labelledby="services-title">
+    <h2 id="services-title" class="section-title">Our Services with Analytical Precision</h2>
+    <p>At BotaniScope, we combine scientific rigor and horticultural expertise to cover all aspects of garden management. Whether you are looking to refine pruning techniques, rethink your garden layout, or optimize your water usage, our services provide the insights and plans needed for success.</p>
+    <div class="grid-3">
+      <article class="feature-card" aria-label="Pruning consultancy service">
+        <figure>
+          <img src="s1.png" alt="Pruning consultation in a professional garden setting" />
+          <figcaption>Pruning Consultancy</figcaption>
+        </figure>
+        <h3>Precision Pruning</h3>
+        <p>Custom pruning plans to promote health, growth, and aesthetics using data-driven pruning schedules and diagnostics.</p>
+        <p>Our consultants evaluate the specific species, growth patterns, and seasonal conditions of your plants to recommend pruning methods and timing that maintain plant vigour and beauty while preventing disease and damage.</p>
+      </article>
+      <article class="feature-card" aria-label="Garden layout design service">
+        <figure>
+          <img src="s2.png" alt="Modern garden layout design with planting maps and pathways" />
+          <figcaption>Garden Layout & Design</figcaption>
+        </figure>
+        <h3>Optimized Garden Layout</h3>
+        <p>Strategic layout consultations to maximize space, plant health, and water efficiency through advanced analytics.</p>
+        <p>By analyzing soil quality, sunlight exposure, and water flow, we design adaptive garden layouts that nurture desired plants in ideal conditions and reduce maintenance requirements.</p>
+      </article>
+      <article class="feature-card" aria-label="Water management service">
+        <figure>
+          <img src="s3.png" alt="Automated irrigation system for efficient water management" />
+          <figcaption>Water Management Solutions</figcaption>
+        </figure>
+        <h3>Smart Water Management</h3>
+        <p>Implement eco-friendly watering systems based on soil moisture analytics and seasonal patterns to conserve resources.</p>
+        <p>Our solutions use sensors and predictive models to schedule watering that aligns with weather, plant needs, and soil moisture levels, ensuring no water is wasted and plants receive optimal hydration.</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-label="Interactive Garden Diagnostics and Analytics" role="region" class="container" style="max-width: 1100px;">
+    <h2 class="section-title" id="dashboard-title">Analytics Dashboard & Interactive Diagnostics</h2>
+    <p>Explore our rich analytics platform that enables hands-on management of your garden health. Providing multiple views into plant pruning status, growth performance, and water consumption patterns, the diagnostics dashboard is designed to turn complex data into clear, actionable insights.</p>
+    <div class="dashboard-grid" role="list" aria-labelledby="dashboard-title">
+      <section class="chart-card" role="listitem" aria-label="Pruning Health Chart">
+        <h4>Pruning Health Overview</h4>
+        <img class="chart-image" src="a1.png" alt="Visual chart showing pruning health overview with indicators of plant health" />
+        <p>This chart tracks key indicators such as branch density, leaf vitality, and disease presence post-pruning events, helping assess whether pruning practices are reinforcing plant resilience.</p>
+      </section>
+      <section class="chart-card" role="listitem" aria-label="Plant Growth Rate">
+        <h4>Plant Growth Rate</h4>
+        <img class="chart-image" src="a2.png" alt="Graph showing plant growth rate over time with upward trend line" />
+        <p>Monitor your plants’ growth trends, observe seasonal cycles and spot improvements or declines early through this detailed growth rate graph.</p>
+      </section>
+      <section class="chart-card" role="listitem" aria-label="Water Usage Efficiency">
+        <h4>Water Usage Efficiency</h4>
+        <img class="chart-image" src="a3.png" alt="Illustration of water usage efficiency with meter and usage stats graphics" />
+        <p>This chart displays your garden’s water consumption patterns compared against plant hydration needs and weather data for optimized water saving recommendations.</p>
+      </section>
+    </div>
+    <div class="analytics-description">
+      <p>Our cutting-edge analytics dashboard provides real-time, interactive garden diagnostics that help you monitor plant health, growth trends, and water consumption with precision. Using advanced sensors and data aggregation, you can visualize the impact of your gardening strategies on an intuitive interface.</p>
+      <p>Designed for clarity and actionability, the dashboard integrates live data streams with historical insights, enabling predictive adjustments for pruning schedules, layout optimization, and irrigation plans. Empower your garden care through accessible visualizations and actionable reports tailored to your specific environment.</p>
+    </div>
+    <figure class="analytics-image" role="img" aria-label="Interactive garden analytics dashboard screenshot illustrating water efficiency and plant health charts">
+      <img src="p1.png" alt="Interactive garden analytics dashboard screenshot illustrating water efficiency and plant health charts with graphs and live data widgets" />
+      <figcaption>Interactive Garden Analytics Dashboard with water usage and growth charts</figcaption>
+    </figure>
+  </section>
+
+  <section id="about" role="region" aria-labelledby="about-title">
+    <h2 id="about-title" class="section-title">About BotaniScope</h2>
+    <article>
+      <p>BotaniScope is a leading garden consultancy that blends botanical expertise with analytics technology to craft sustainable, thriving outdoor environments. Our team combines decades of horticultural experience with state-of-the-art data analysis tools to deliver tailored pruning plans, optimized garden layouts, and smart water management strategies. We empower gardeners and property owners to make informed decisions that foster growth, conserve resources, and beautify spaces.</p>
+      <p>Our passion for plants and technology drives us to continually innovate and integrate new methodologies. We ensure our clients receive not just plans, but ongoing support through data insights, education, and personalized consultation tailored to each garden's unique ecosystem.</p>
+      <p>With BotaniScope, expect professional service rooted in scientific understanding coupled with a genuine love for green landscapes, fostering community and environmental health.</p>
+      <figure>
+        <img src="p2.png" alt="BotaniScope expert team discussing garden analytics around a digital tablet" />
+        <figcaption>Our expert consultancy team at work</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <section id="feedback" role="region" aria-labelledby="feedback-title">
+    <h2 id="feedback-title" class="section-title">Customer Feedback</h2>
+    <p>Your experiences matter deeply to us. By sharing how BotaniScope has impacted your garden or suggestions for our services, you help us grow and improve. We actively listen and incorporate client insights to refine our methodologies and tools.</p>
+    <form id="feedback-form" aria-describedby="feedback-instructions" style="max-width: 800px; margin-inline:auto;">
+      <p id="feedback-instructions">We value your feedback. Please share your experience or suggestions.</p>
+      <label for="feedback-text" class="visually-hidden">Your feedback</label>
+      <textarea id="feedback-text" name="feedback" placeholder="Write your feedback here..." aria-required="true" required></textarea>
+      <button type="submit" class="send-feedback" aria-label="Send Feedback Button">Send Feedback</button>
+    </form>
+    <div id="feedback-response" role="alert" style="margin-top:1.5rem; color:#059669; font-weight:600;"></div>
+  </section>
+
+  <section id="tips" role="region" aria-labelledby="tips-title" class="container">
+    <h2 id="tips-title" class="section-title">Expert Gardening Tips</h2>
+    <div>
+      <h3>Maximize Plant Health</h3>
+      <ul>
+        <li>Regularly inspect plants for pests or diseases to maintain garden health. Early detection leads to healthier ecosystems and reduced pesticide use.</li>
+        <li>Prune during early morning or late evening to prevent plant stress and reduce water loss, allowing for faster recovery and growth.</li>
+        <li>Use mulching to preserve soil moisture and reduce weed growth, helping maintain stable root environments and soil temperature.</li>
+      </ul>
+      <h3>Water Wisely</h3>
+      <ul>
+        <li>Choose drip irrigation for efficient watering with minimal evaporation, directing water to plants’ roots effectively.</li>
+        <li>Water deep and less frequently to encourage strong root development and resilience during dry periods.</li>
+        <li>Adjust watering schedules seasonally using soil moisture analytics, ensuring plants receive optimal hydration year-round.</li>
+      </ul>
+      <h3>Garden Layout Best Practices</h3>
+      <ul>
+        <li>Group plants by water and sunlight needs for easy maintenance and health, reducing stress on plants and improving longevity.</li>
+        <li>Ensure adequate spacing to promote airflow and reduce disease risk, creating an open environment for healthy growth.</li>
+        <li>Incorporate pathways with permeable surfaces to avoid runoff and compaction, supporting soil integrity and water absorption.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="disclaimer" role="region" aria-label="Disclaimer and legal information">
+    <p><strong>Disclaimer:</strong> BotaniScope offers consultancy services based on best practices and available analytics. Results may vary due to environmental factors beyond control. Always consult with certified local professionals before conducting major garden modifications or treatments.</p>
+    <p>All recommendations are made in good faith based on gathered data and research, but BotaniScope disclaims liability for any damages or losses related to consultancy advice, implementations, or unauthorized use of provided material.</p>
+  </section>
+</main>
+
+<footer aria-label="Site footer with contact and customer satisfaction information">
+  <div class="container">
+    <p><strong>Address:</strong> 4 Washington Pl, New York, NY 10003, USA</p>
+    <p>At BotaniScope, we are committed to increasing your satisfaction through transparent analytics, insightful advice, and continuous support. Your garden’s health and your happiness drive our purpose.</p>
+  </div>
+</footer>
+
+<script>
+  // Form feedback submission simulation
+  const form = document.getElementById('feedback-form');
+  const feedbackResponse = document.getElementById('feedback-response');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const textarea = form.elements['feedback'];
+    const textVal = textarea.value.trim();
+    if (!textVal) {
+      feedbackResponse.textContent = 'Please enter feedback before sending.';
+      feedbackResponse.style.color = '#b91c1c'; // red
+      return;
+    }
+    // Simulate feedback send delay
+    feedbackResponse.textContent = 'Sending feedback...';
+    feedbackResponse.style.color = '#059669'; // green
+    
+    setTimeout(() => {
+      feedbackResponse.textContent = 'Thank you for your valuable feedback!';
+      textarea.value = '';
+    }, 1500);
+  });
+
+  // Accessibility helper: visually-hidden for screen readers
+  const style = document.createElement('style');
+  style.textContent = `
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0,0,0,0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+</body>
+</html>
+

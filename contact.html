@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us - BotaniScope</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Material+Icons" rel="stylesheet" />
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Inter', sans-serif; background: #ffffff; color: #374151; line-height: 1.7; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  img {
+    max-width: 100%; height: auto; display: block;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgb(16 185 129 / 0.3);
+  }
+  a {
+    color: #059669; text-decoration: none;
+  }
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 700; color: #111827; margin-top: 0; margin-bottom: 0.75em;
+    line-height: 1.3;
+  }
+  p {
+    margin-top: 0; margin-bottom: 1.5em;
+    color: #4b5563;
+  }
+  ul {
+    margin-left: 1.25rem;
+    margin-bottom: 1.5em;
+    color: #4b5563;
+  }
+  ul li {
+    margin-bottom: 0.75em;
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #065f46;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1.5px solid #a3a3a3;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #374151;
+    transition: border-color 0.25s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #10b981;
+  }
+  button.send-button {
+    margin-top: 16px;
+    background: linear-gradient(135deg, #059669, #10b981);
+    border: none;
+    color: white;
+    padding: 15px 36px;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease;
+  }
+  button.send-button:hover,
+  button.send-button:focus {
+    background: linear-gradient(135deg, #10b981, #059669);
+    outline: none;
+  }
+  /* Container */
+  .container {
+    max-width: 960px; margin-inline: auto; padding-left: 24px; padding-right: 24px;
+  }
+  /* Header */
+  header {
+    position: sticky; top: 0; background: rgba(255 255 255 / 0.9);
+    backdrop-filter: saturate(180%) blur(12px);
+    box-shadow: 0 1px 4px rgb(0 0 0 / 0.1);
+    z-index: 1000;
+  }
+  .header-content {
+    display: flex; align-items: center; justify-content: space-between; height: 64px;
+  }
+  .logo {
+    font-size: 1.75rem; font-weight: 700; color: #047857; letter-spacing: -0.02em;
+    cursor: default;
+  }
+  .slogan {
+    font-weight: 600; color: #10b981; font-size: 1rem; opacity: 0.8; font-style: italic;
+  }
+  nav {
+    display: flex;
+    gap: 32px;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #065f46;
+    display: inline-block;
+    padding: 6px 0;
+  }
+  nav a:hover,
+  nav a:focus,
+  nav a[aria-current="page"] {
+    color: #059669;
+    outline-offset: 2px;
+    border-bottom: 2px solid #10b981;
+  }
+  /* Main content */
+  main {
+    padding: 48px 0 80px;
+  }
+  /* Section Titles */
+  h1.section-main-title {
+    font-size: 2.75rem;
+    color: #065f46;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 48px;
+    margin-bottom: 24px;
+    color: #047857;
+  }
+  /* Form and info sections */
+  .contact-info {
+    background: #f0fdf4;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 12px rgb(0 0 0 / 0.07);
+    margin-bottom: 48px;
+  }
+  .contact-info p {
+    margin-bottom: 1rem;
+  }
+  /* Additional content styling */
+  .content-section {
+    margin-bottom: 40px;
+    text-align: justify;
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  /* Responsive */
+  @media (max-width: 768px){
+    .container {
+      padding-inline: 16px;
+    }
+    nav {
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="container header-content" role="banner" aria-label="Primary navigation and branding">
+    <div class="logo" aria-label="BotaniScope logo">BotaniScope</div>
+    <nav aria-label="Primary navigation">
+     <a href="index.html" tabindex="0">Home</a>
+        <a href="privacy.html" tabindex="0">Privacy</a>
+        <a href="terms.html" tabindex="0">Terms & conditons</a>
+        <a href="cookies.html"tabindex="0">Cookies</a>
+        <a href="contact.html" tabindex="0"aria-current="page">Contact us</a>
+    </nav>
+    <div class="slogan" aria-label="Company slogan">Let's grow with insight.</div>
+  </div>
+</header>
+
+<main class="container" role="main">
+  <h1 class="section-main-title">Contact Us</h1>
+  
+  <section class="contact-info" aria-labelledby="contact-details-title">
+    <h2 id="contact-details-title">Our Contact Information</h2>
+    <p>
+      We at BotaniScope are eager to hear from you. Whether you have questions about our garden consultancy services, want to request a quote, or need assistance with existing services, our team is ready to assist you promptly and professionally.
+    </p>
+    <p>
+      <strong>Address:</strong> 4 Washington Pl, New York, NY 10003, USA
+    </p>
+    <p>
+      <strong>Phone:</strong> +1 (833) 777-8686
+    </p>
+    <p>
+      <strong>Email:</strong> <a href="mailto:contact@botaniscope.com">contact@botaniscope.com</a>
+    </p>
+  </section>
+
+  <section aria-labelledby="contact-form-title">
+    <h2 id="contact-form-title">Send Us a Message</h2>
+    <form id="contact-form" aria-describedby="form-instructions" novalidate>
+      <p id="form-instructions">Please fill in the form below, and we will get back to you as soon as possible.</p>
+      <label for="name">Full Name*</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required aria-required="true" />
+      
+      <label for="email">Email Address*</label>
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required aria-required="true" />
+      
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" name="phone" placeholder="+1 (555) 123-4567" />
+      
+      <label for="message">Message*</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required aria-required="true"></textarea>
+      
+      <button type="submit" class="send-button" aria-label="Send message">Send Message</button>
+    </form>
+    <div id="form-response" role="alert" style="margin-top:1.5rem; font-weight:600;"></div>
+  </section>
+
+  <section class="content-section" aria-labelledby="additional-info-title">
+    <h2 id="additional-info-title">Additional Information</h2>
+    <p>
+      BotaniScope offers a wide range of garden consultancy services aimed at optimizing your outdoor spaces. Our contact page is your gateway to personalized assistance designed to meet your specific gardening needs. Whether you’re a homeowner, landscaper, or institution, our team provides expert advice using cutting-edge analytics to help your garden thrive.
+    </p>
+    <p>
+      Our dedicated client relations team is committed to providing timely and thorough responses to your questions, ensuring you receive comprehensive guidance on pruning, layout design, water management, and more. We invite you to connect with us not just for inquiries but also for sharing feedback that helps us grow as your trusted gardening partner.
+    </p>
+    <p>
+      For custom requests or ongoing consultancy, please provide detailed descriptions so we can tailor our advice and services accurately. We understand the diversity of gardening environments and adapt our methods accordingly, leveraging technology and botanical expertise.
+    </p>
+    <p>
+      Our physical office located in New York welcomes scheduled visits for consultations and follow-ups. We maintain strict health and safety protocols to ensure a comfortable onsite experience for all clients.
+    </p>
+    <p>
+      Additionally, we offer remote support options including virtual consultations, email assistance, and phone support to accommodate clients unable to visit in person. Our technology-driven approach ensures that distance does not reduce the quality or accessibility of our services.
+    </p>
+    <p>
+      Stay connected with BotaniScope through our newsletter and social media pages where we share gardening tips, technology updates, and community stories. Your engagement fosters a vibrant gardening community that benefits all.
+    </p>
+    <p>
+      We respect your privacy and safeguard any personal information shared during communication. Our Privacy Policy explains how your data is protected and used responsibly.
+    </p>
+    <p>
+      If you face urgent gardening challenges or need immediate assistance with pest control, irrigation problems, or pruning emergencies, please use our emergency contact line available 24/7 to reach expert help promptly.
+    </p>
+    <p>
+      BotaniScope values every interaction with its clients and welcomes long-term relationships based on trust, expertise, and mutual growth. We are here to help nurture your garden as a flourishing, sustainable, and beautiful space.
+    </p>
+    <p>
+      Please fill out the contact form completely so we can provide the most effective support. Thank you for choosing BotaniScope.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently Asked Questions (FAQ)</h2>
+    <p>
+      In addition to contacting us directly, you may find answers to common questions about our services, booking appointments, pricing, and garden care tips in our FAQ section on the main website.
+    </p>
+    <p>
+      Our FAQ is regularly updated to address the most recent inquiries and provide practical solutions to enhance your gardening success.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="privacy-assurance-title">
+    <h2 id="privacy-assurance-title">Privacy Assurance</h2>
+    <p>
+      All communications and personal data shared via this contact page are protected under our comprehensive Privacy Policy. We ensure your information remains secure and is not shared with unauthorized third parties.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="support-timings-title">
+    <h2 id="support-timings-title">Support Timings</h2>
+    <p>
+      Our customer support team is available from Monday through Friday between 9:00 AM and 6:00 PM Eastern Time.
+    </p>
+    <p>
+      Messages received outside these hours will be addressed on the next business day promptly.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="emergency-contact-title">
+    <h2 id="emergency-contact-title">Emergency Contact</h2>
+    <p>
+      For urgent gardening emergencies or critical issues affecting your property, please call our emergency hotline available 24/7 at +1 (212) 555-6789.
+    </p>
+    <p>
+      This dedicated line is reserved for urgent matters requiring immediate attention and may include damage control or pest infestation emergencies.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="consultation-booking-title">
+    <h2 id="consultation-booking-title">Consultation Booking</h2>
+    <p>
+      For scheduling detailed consultations, please use our online booking system available through the main website or request appointment times via email or phone.
+    </p>
+    <p>
+      We recommend booking appointments well in advance during peak gardening seasons to ensure availability.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="feedback-invitation-title">
+    <h2 id="feedback-invitation-title">Feedback Invitation</h2>
+    <p>
+      We appreciate your feedback as it helps us continuously improve our services. Feel free to share your experience, suggestions, or concerns through this contact page or customer feedback channels.
+    </p>
+    <p>
+      Your input is valuable to us and often directly shapes the evolution of our consultancy offerings.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="sustainability-commitment-title">
+    <h2 id="sustainability-commitment-title">Our Commitment to Sustainability</h2>
+    <p>
+      At BotaniScope, we prioritize environmentally responsible gardening practices. Our consultants incorporate sustainability principles in every recommendation and encourage eco-friendly alternatives.
+    </p>
+    <p>
+      Contact us to learn how your garden can become more sustainable and reduce environmental impact.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="customer-support-title">
+    <h2 id="customer-support-title">Customer Support and Assistance</h2>
+    <p>
+      Our dedicated customer support team assists with technical, billing, and service-related inquiries to ensure your satisfaction.
+    </p>
+    <p>
+      We aim to resolve issues effectively and provide clear guidance to enhance your experience with BotaniScope.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="contact-us-title">
+    <h2 id="contact-us-title">Contact Us Anytime</h2>
+    <p>
+      Whether you are a new or existing client, BotaniScope welcomes your questions and inquiries. We value open communication and are committed to responding professionally and promptly.
+    </p>
+  </section>
+
+  <!-- New topics start -->
+
+  <section class="content-section" aria-labelledby="communication-preferences-title">
+    <h2 id="communication-preferences-title">Communication Preferences</h2>
+    <p>
+      We respect your communication preferences and provide options for how you wish to receive updates and correspondence. Whether via email, phone, or postal mail, you can customize your contact preferences at any time.
+    </p>
+    <p>
+      Our goal is to provide you with relevant, timely information without overwhelming you with unnecessary messages.
+    </p>
+    <p>
+      You can unsubscribe from marketing communications at any time by following the instructions included in each message.
+    </p>
+    <p>
+      For account or service related notifications, we use secure and direct channels to ensure you stay informed about your engagements with us.
+    </p>
+    <p>
+      We commit to protecting your contact details in all forms of communication.
+    </p>
+    <p>
+      For questions about communication preferences, reach out to our support team.
+    </p>
+    <p>
+      Our respect for your time and privacy guides our communication policy.
+    </p>
+    <p>
+      We never share your contact details with third parties for marketing without your explicit consent.
+    </p>
+    <p>
+      Contact channel options and preferences are periodically reviewed to improve service delivery.
+    </p>
+    <p>
+      Your feedback on communication methods is always welcome and appreciated.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="data-protection-title">
+    <h2 id="data-protection-title">Data Protection Practices</h2>
+    <p>
+      BotaniScope employs a comprehensive approach to data protection, incorporating physical, technical, and administrative safeguards.
+    </p>
+    <p>
+      We continually update our security measures to combat emerging threats and vulnerabilities.
+    </p>
+    <p>
+      Access to personal data is restricted to authorized personnel with strict confidentiality obligations.
+    </p>
+    <p>
+      Encryption technologies protect data in transit and at rest, ensuring information security.
+    </p>
+    <p>
+      Regular audits and penetration testing identify and mitigate risks proactively.
+    </p>
+    <p>
+      We provide privacy training to employees to foster a culture of data responsibility.
+    </p>
+    <p>
+      Data protection policies are designed to comply with global regulatory frameworks including GDPR and CCPA.
+    </p>
+    <p>
+      Incident response protocols are in place to promptly address any data breaches.
+    </p>
+    <p>
+      We work with trusted third-party service providers who meet our stringent security criteria.
+    </p>
+    <p>
+      Protecting your data is a core value guiding all BotaniScope operations and interactions.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="client-onboarding-title">
+    <h2 id="client-onboarding-title">Client Onboarding Process</h2>
+    <p>
+      Upon contracting our consultancy services, we provide a structured onboarding process to capture your garden specifics and service expectations.
+    </p>
+    <p>
+      This includes comprehensive data gathering through questionnaires, site visits, and diagnostics.
+    </p>
+    <p>
+      Our team uses this information to prepare custom tailored reports and actionable plans aligned with your garden’s unique characteristics.
+    </p>
+    <p>
+      Clear timelines, milestones, and communication channels are established during onboarding to ensure smooth project progress.
+    </p>
+    <p>
+      We provide training and resources for clients to understand and implement recommended practices effectively.
+    </p>
+    <p>
+      Our onboarding is designed for transparency, collaboration, and client empowerment.
+    </p>
+    <p>
+      We encourage questions and feedback throughout the onboarding to refine solutions.
+    </p>
+    <p>
+      Onboarding documentation and data are securely stored with access controls.
+    </p>
+    <p>
+      Clients receive contact information for dedicated consultants to support ongoing engagements.
+    </p>
+    <p>
+      We periodically review onboarding processes for enhancement based on client experiences.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="service-customization-title">
+    <h2 id="service-customization-title">Service Customization Options</h2>
+    <p>
+      BotaniScope values personalized service delivery and offers various customization options to fit your unique garden needs.
+    </p>
+    <p>
+      Services ranging from pruning, layout planning, and irrigation management can be tailored in scope and format.
+    </p>
+    <p>
+      We offer flexible consultation formats including onsite visits, virtual sessions, and hybrid models.
+    </p>
+    <p>
+      Scheduling can be adjusted to seasonal requirements and client availability.
+    </p>
+    <p>
+      Custom reports and diagnostic feedback are provided in user-friendly formats including digital dashboards and printable documents.
+    </p>
+    <p>
+      Additional support services such as follow-up visits or training workshops are available by arrangement.
+    </p>
+    <p>
+      Pricing models reflect the extent and frequency of customization to maintain affordability.
+    </p>
+    <p>
+      We invite clients to discuss their priorities and challenges during initial consultation to define customization options.
+    </p>
+    <p>
+      Custom service agreements are documented and accessible via client portals.
+    </p>
+    <p>
+      BotaniScope continually evolves customization capabilities to leverage new technologies and methodologies.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="technology-integration-title">
+    <h2 id="technology-integration-title">Technology Integration</h2>
+    <p>
+      Our consultancy integrates state-of-the-art technologies including IoT sensors, data analytics software, and mobile applications to provide comprehensive garden management insights.
+    </p>
+    <p>
+      Technology deployment is done with minimal disruption and tailored to client infrastructure.
+    </p>
+    <p>
+      Clients are provided training on technology use and interpretation of analytics data.
+    </p>
+    <p>
+      Continuous monitoring and updates ensure that technology remains effective and secure.
+    </p>
+    <p>
+      We partner with leading tech providers to deliver innovation while safeguarding privacy.
+    </p>
+    <p>
+      Data collected through technology is used only for client benefit and aggregated insights.
+    </p>
+    <p>
+      We comply with all relevant regulations regarding data collection and electronic communications.
+    </p>
+    <p>
+      Support services are available to address technological issues promptly.
+    </p>
+    <p>
+      Feedback on technological tools informs ongoing improvement and customization.
+    </p>
+    <p>
+      BotaniScope aims to leverage technology as a key enabler of sustainable garden management.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="billing-and-invoicing-title">
+    <h2 id="billing-and-invoicing-title">Billing and Invoicing</h2>
+    <p>
+      We issue invoices promptly following service agreements and upon service delivery milestones.
+    </p>
+    <p>
+      Clear descriptions of services and charges are provided to avoid confusion.
+    </p>
+    <p>
+      Multiple payment methods are supported including credit, bank transfer, and online payment gateways.
+    </p>
+    <p>
+      Billing inquiries and disputes are handled courteously and resolved fairly.
+    </p>
+    <p>
+      Clients receive billing statements accessible via client portals.
+    </p>
+    <p>
+      Late payments may incur fees as outlined in service contracts.
+    </p>
+    <p>
+      Refund policies and cancellation fees are clarified at contracting.
+    </p>
+    <p>
+      Confidentiality of financial information is strictly maintained.
+    </p>
+    <p>
+      BotaniScope complies with tax laws and issues required receipts.
+    </p>
+    <p>
+      Transparent billing fosters trust and smooth client relationships.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="client-support-services-title">
+    <h2 id="client-support-services-title">Client Support Services</h2>
+    <p>
+      Our support team assists with all technical, scheduling, and service-related queries.
+    </p>
+    <p>
+      Multiple channels including phone, email, and chat are available for your convenience.
+    </p>
+    <p>
+      Support services are tailored to client needs and prioritized by urgency.
+    </p>
+    <p>
+      We provide guidance for effective use of reports, dashboards, and garden tech.
+    </p>
+    <p>
+      Training sessions and documentation are offered to enhance client independence.
+    </p>
+    <p>
+      Feedback to support improves service quality continuously.
+    </p>
+    <p>
+      We ensure clear communication regarding service updates and changes.
+    </p>
+    <p>
+      Emergency support is accessible for critical garden situations.
+    </p>
+    <p>
+      Our commitment is to seamless, professional client experiences.
+    </p>
+    <p>
+      Contact support any time to enhance your BotaniScope service experience.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="client-feedback-and-improvement-title">
+    <h2 id="client-feedback-and-improvement-title">Client Feedback and Continuous Improvement</h2>
+    <p>
+      We welcome and encourage all client feedback to help us evolve our service offerings.
+    </p>
+    <p>
+      Regular satisfaction surveys measure client sentiment and identify areas for enhancement.
+    </p>
+    <p>
+      Feedback channels are open via website forms, email, phone, and social media.
+    </p>
+    <p>
+      Our response team analyzes feedback and incorporates improvements diligently.
+    </p>
+    <p>
+      Clients contributing feedback may receive exclusive invitations to pilot new services.
+    </p>
+    <p>
+      Transparency about changes driven by feedback strengthens client trust.
+    </p>
+    <p>
+      We celebrate client success stories as part of our continuous improvement ethos.
+    </p>
+    <p>
+      Open dialogue contributes to innovation and superior gardening outcomes.
+    </p>
+    <p>
+      Your insights help shape BotaniScope into a world-class consultancy.
+    </p>
+    <p>
+      Please share your thoughts—your voice matters greatly to our growth.
+    </p>
+  </section>
+
+  <section class="content-section" aria-labelledby="community-engagement-title">
+    <h2 id="community-engagement-title">Community Engagement and Events</h2>
+    <p>
+      BotaniScope actively participates in gardening and environmental community events and forums.
+    </p>
+    <p>
+      Clients are invited to attend workshops, seminars, and webinars conducted by our experts.
+    </p>
+    <p>
+      We collaborate with local organizations for sustainability projects and outreach.
+    </p>
+    <p>
+      Our community blog shares insights, stories, and gardening innovations.
+    </p>
+    <p>
+      Networking opportunities with fellow gardeners are facilitated through our programs.
+    </p>
+    <p>
+      Event schedules and registration details are communicated via newsletters and social channels.
+    </p>
+    <p>
+      We believe community strengthens gardening knowledge and enjoyment.
+    </p>
+    <p>
+      Partnerships foster responsible gardening practices for better ecosystems.
+    </p>
+    <p>
+      Join BotaniScope community activities to connect, learn, and grow your garden skills.
+    </p>
+    <p>
+      Your participation enriches the gardening community ecosystem we cherish.
+    </p>
+  </section>
+
+</main>
+
+<footer aria-label="Site footer with contact and customer satisfaction information">
+  <div class="container">
+    <p><strong>Address:</strong> 4 Washington Pl, New York, NY 10003, USA</p>
+    <p><strong>Phone:</strong> +1 (833) 777-8686</p>
+    <p>At BotaniScope, we are committed to increasing your satisfaction through transparent analytics, insightful advice, and continuous support. Your trust is our priority.</p>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const formResponse = document.getElementById('form-response');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      formResponse.textContent = 'Please fill in all required fields marked with *.';
+      formResponse.style.color = '#b91c1c'; // red
+      return;
+    }
+
+    formResponse.textContent = 'Sending your message...';
+    formResponse.style.color = '#059669'; // green
+
+    setTimeout(() => {
+      formResponse.textContent = 'Thank you for contacting BotaniScope! We will respond as soon as possible.';
+      form.reset();
+    }, 2000);
+  });
+</script>
+</body>
+</html>
